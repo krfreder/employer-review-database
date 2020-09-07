@@ -5,6 +5,22 @@
     <title>Registration</title>
 </head>
 <body>
-
+    <form method="post" th:action="@{/login/register}" th:objects="${userDTO}">
+        <div>
+            <label>Username</label>
+            <input type="text" name="username" th:value="*{username}">
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" th:value="*{password}">
+        </div>
+        <div>
+            <label>Please Re-enter Your Password</label>
+            <input type="password" name="passwordMatch" th:value="*{passwordMatch}">
+        </div>
+        <div>
+            <button type="submit">Create My Account</button>
+        </div>
+    </form>
 </body>
 </html>
