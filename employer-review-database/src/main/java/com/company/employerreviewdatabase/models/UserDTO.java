@@ -1,7 +1,10 @@
 package com.company.employerreviewdatabase.models;
 
+import javax.validation.constraints.NotBlank;
+
 public class UserDTO {
     // TODO: 9/7/2020 add validation checks 
+    @NotBlank
     private String username;
 
     private String password;
