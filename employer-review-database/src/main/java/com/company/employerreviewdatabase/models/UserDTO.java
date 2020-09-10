@@ -1,14 +1,17 @@
 package com.company.employerreviewdatabase.models;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class UserDTO {
-    // TODO: 9/7/2020 add validation checks 
-    @NotBlank
+
+    @NotBlank(message = "Please enter a username")
     private String username;
 
+    @NotBlank(message = "Please enter a password")
     private String password;
 
+    @NotBlank(message = "Please re-enter your password")
     private String passwordMatch;
 
     public UserDTO() {}

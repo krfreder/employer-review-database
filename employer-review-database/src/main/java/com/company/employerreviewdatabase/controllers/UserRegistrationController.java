@@ -6,8 +6,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "login")
@@ -30,8 +33,12 @@ public class UserRegistrationController {
     }
 // when controller is called, creates a log storing the data inputted by user as a string
     @PostMapping("register")
-    public void save(UserDTO userDTO) {
+    public String save(@Valid UserDTO userDTO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "register";
+        }
         createLog.info(">> userDTO : {}" + userDTO.toString());
+        return "redirect:/login";
     }
 
 }
