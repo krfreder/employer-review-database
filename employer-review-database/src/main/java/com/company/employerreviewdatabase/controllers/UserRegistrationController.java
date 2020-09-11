@@ -29,7 +29,7 @@ public class UserRegistrationController {
     public String registerUser(@ModelAttribute UserDTO userDTO, Model model) {
         model.addAttribute("user", userDTO);
         // TODO: 9/7/2020 add "register" into SecurityConfig .antMatchers, ensure is routed to proper html file
-        return "login/register";
+        return "register";
     }
 // when controller is called, creates a log storing the data inputted by user as a string
     @PostMapping("register")

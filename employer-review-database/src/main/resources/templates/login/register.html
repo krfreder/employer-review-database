@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Registration</title>
-</head>
-<body>
-    <form method="post" th:action="@{/login/register}" th:objects="${userDTO}">
-        <div>
-            <label>Username</label>
-            <input type="text" name="username" th:value="*{username}">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"/>
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<!--todo: consider using th:errorClass when css created for each div, style error messages-->
+<!--    if "errors" does not work add th:if (fields.hasErrors)-->
+<form method="post" th:action="@{/login/register}" th:objects="${userDTO}">
+        <div class="form-group">
+            <label>Username
+                <input type="text" name="username" class="form-control" th:value="*{username}"/>
+                <p class="error" th:errors="*{username}"></p>
+            </label>
         </div>
-        <div>
+        <div class="form-group">
             <label>Password</label>
-            <input type="password" name="password" th:value="*{password}">
+                <input type="password" name="password" class="form-control" th:value="*{password}"/>
+                <p class="error" th:errors="*{password}"></p>
+            </label>
         </div>
-        <div>
+        <div class="form-group">
             <label>Please Re-enter Your Password</label>
-            <input type="password" name="passwordMatch" th:value="*{passwordMatch}">
+                <input type="password" name="passwordMatch" class="form-control" th:value="*{passwordMatch}"/>
+                <p class="error" th:errors="*{passwordMatch}"></p>
+            </label>
         </div>
-        <div>
-            <button type="submit">Create My Account</button>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Create My Account</button>
         </div>
     </form>
 </body>

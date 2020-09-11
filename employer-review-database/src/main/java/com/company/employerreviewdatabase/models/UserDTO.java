@@ -1,7 +1,6 @@
 package com.company.employerreviewdatabase.models;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 public class UserDTO {
 
