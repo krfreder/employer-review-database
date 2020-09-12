@@ -16,29 +16,36 @@ import javax.validation.Valid;
 @RequestMapping(value = "login")
 public class UserRegistrationController {
 
-    private static final Logger createLog = LoggerFactory.getLogger(UserRegistrationController.class);
-
-//    trims blank space from inputted strings, labeling inputs with only blank space as Null (handydandy!)
-    @InitBinder
-    public void initBinder(WebDataBinder dataBinder) {
-        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
-        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
-    }
-
-    @GetMapping("register")
-    public String registerUser(@ModelAttribute UserDTO userDTO, Model model) {
-        model.addAttribute("user", userDTO);
-        // TODO: 9/7/2020 add "register" into SecurityConfig .antMatchers, ensure is routed to proper html file
+    @GetMapping(value = "register")
+    public String registerUser(Model model) {
+        model.addAttribute(new UserDTO());
+        model.addAttribute("title", "Register");
         return "register";
     }
-// when controller is called, creates a log storing the data inputted by user as a string
-    @PostMapping("register")
-    public String save(@Valid UserDTO userDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "register";
-        }
-        createLog.info(">> userDTO : {}" + userDTO.toString());
-        return "redirect:/login";
-    }
+
+//    private static final Logger createLog = LoggerFactory.getLogger(UserRegistrationController.class);
+//
+////    trims blank space from inputted strings, labeling inputs with only blank space as Null (handydandy!)
+//    @InitBinder
+//    public void initBinder(WebDataBinder dataBinder) {
+//        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+//        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+//    }
+//
+//    @GetMapping("register")
+//    public String registerUser(@ModelAttribute UserDTO userDTO, Model model) {
+//        model.addAttribute("user", userDTO);
+//        // TODO: 9/7/2020 add "register" into SecurityConfig .antMatchers, ensure is routed to proper html file
+//        return "register";
+//    }
+//// when controller is called, creates a log storing the data inputted by user as a string
+//    @PostMapping("register")
+//    public String save(@Valid UserDTO userDTO, BindingResult bindingResult) {
+//        if (bindingResult.hasErrors()) {
+//            return "register";
+//        }
+//        createLog.info(">> userDTO : {}" + userDTO.toString());
+//        return "redirect:";
+//    }
 
 }

@@ -21,18 +21,22 @@ public class UserDTO {
 
     public String getPassword() { return password; }
 
-    public void setPassword(String password) { this.password = password; }
+    public void setPassword(String password) {
+        this.password = password;
+        checkPasswordForRegistration();
+    }
 
     public String getPasswordMatch() { return passwordMatch; }
 
-    public void setPasswordMatch(String passwordMatch) { this.passwordMatch = passwordMatch; }
-// To String
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", passwordMatch='" + passwordMatch + '\'' +
-                '}';
+    public void setPasswordMatch(String passwordMatch) {
+        this.passwordMatch = passwordMatch;
+        checkPasswordForRegistration();
     }
+// password check method
+    private void checkPasswordForRegistration() {
+        if(!getPassword().equals(passwordMatch)) {
+            passwordMatch = null;
+        }
+    }
+
 }

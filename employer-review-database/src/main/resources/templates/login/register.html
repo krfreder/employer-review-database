@@ -8,19 +8,19 @@
         <div class="form-group">
             <label>Username
                 <input type="text" name="username" class="form-control" th:value="*{username}"/>
-                <p class="error" th:errors="*{username}"></p>
+                <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="has-error"></>
             </label>
         </div>
         <div class="form-group">
             <label>Password</label>
                 <input type="password" name="password" class="form-control" th:value="*{password}"/>
-                <p class="error" th:errors="*{password}"></p>
+                <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="invalid"></>
             </label>
         </div>
         <div class="form-group">
             <label>Please Re-enter Your Password</label>
                 <input type="password" name="passwordMatch" class="form-control" th:value="*{passwordMatch}"/>
-                <p class="error" th:errors="*{passwordMatch}"></p>
+                <div th:if="${#fields.hasErrors('passwordMatch')}" th:errors="*{passwordMatch}" class="invalid"></>
             </label>
         </div>
         <div class="form-group">
