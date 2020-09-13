@@ -4,7 +4,8 @@ import com.company.employerreviewdatabase.models.User;
 import com.company.employerreviewdatabase.models.UserDTO;
 import com.company.employerreviewdatabase.respositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -16,7 +17,7 @@ public class UserServiceImplement implements UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private PasswordEncoder passwordEncoder;
 // checks if username exists, if the username exists - presents error message, if not - saves user to database w/encoded pw
     @Transactional
     @Override
@@ -28,7 +29,7 @@ public class UserServiceImplement implements UserService {
 
         User newUser = new User(
           userDTO.getUsername(),
-          bCryptPasswordEncoder.encode(userDTO.getPassword()));
+          passwordEncoder.encode(userDTO.getPassword()));
         userRepository.save(newUser);
 
         return newUser;
