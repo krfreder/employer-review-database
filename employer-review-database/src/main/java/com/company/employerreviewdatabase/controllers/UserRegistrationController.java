@@ -16,26 +16,26 @@ import javax.validation.Valid;
 import java.security.Principal;
 
 @Controller
-@RequestMapping(value = "/login")
+@RequestMapping(value = "login")
 public class UserRegistrationController extends AbstractBaseController {
 
     @GetMapping(value = "/register")
     public String registerUser(Model model) {
         model.addAttribute(new UserDTO());
         model.addAttribute("title", "Register");
-        return "/register";
+        return "register";
     }
 
     @PostMapping(value = "/register")
     public String saveUser(@ModelAttribute @Valid UserDTO userDTO, Errors errors) {
         if (errors.hasErrors())
-            return "/register";
+            return "register";
 
         try {
             userService.saveUser(userDTO);
         } catch (UserExistsException userExistsException) {
             errors.rejectValue("username", "username.alreadyexists", userExistsException.getMessage());
-            return "/register";
+            return "register";
         }
 
         return "redirect:/";
@@ -50,7 +50,7 @@ public class UserRegistrationController extends AbstractBaseController {
         if (logout != null) {
             model.addAttribute(MESSAGE_KEY, "info|You have logged out");
         }
-        return "/login";
+        return "login";
     }
 }
 //    private static final Logger createLog = LoggerFactory.getLogger(UserRegistrationController.class);
