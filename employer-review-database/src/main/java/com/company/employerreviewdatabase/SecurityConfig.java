@@ -39,11 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests()
-                    .antMatchers("/", "/login", "login/register").permitAll()
+                    .antMatchers("/login", "/login/register").permitAll()
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
-                    .loginPage("/login/login")
+                    .loginPage("/login")
                     .usernameParameter("username")
                     .permitAll()
                     .and()

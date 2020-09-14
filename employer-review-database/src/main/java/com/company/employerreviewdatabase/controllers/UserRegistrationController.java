@@ -19,14 +19,14 @@ import java.security.Principal;
 @RequestMapping(value = "login")
 public class UserRegistrationController extends AbstractBaseController {
 
-    @GetMapping(value = "/register")
+    @GetMapping(value = "register")
     public String registerUser(Model model) {
         model.addAttribute(new UserDTO());
         model.addAttribute("title", "Register");
         return "register";
     }
 
-    @PostMapping(value = "/register")
+    @PostMapping(value = "register")
     public String saveUser(@ModelAttribute @Valid UserDTO userDTO, Errors errors) {
         if (errors.hasErrors())
             return "register";
@@ -38,13 +38,13 @@ public class UserRegistrationController extends AbstractBaseController {
             return "register";
         }
 
-        return "redirect:/";
+        return "login";
     }
 
     @GetMapping
     public String loginUser(Model model, Principal principal, String error, String logout) {
         if (principal != null)
-            return "redirect:/home";
+            return "redirect:/profile";
         if (error != null)
             model.addAttribute(MESSAGE_KEY, "danger|The username or password entered is invalid");
         if (logout != null) {

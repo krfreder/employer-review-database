@@ -18,6 +18,8 @@ public class User extends AbstractEntity {
 
     @NotNull
     private Boolean isEnabled = true;
+
+    public User() {}
 // validation messages within user object (can be moved to variable declaration)
     public User(@NotBlank String username, @NotBlank String password) {
         if (username == null || username.length() == 0)
