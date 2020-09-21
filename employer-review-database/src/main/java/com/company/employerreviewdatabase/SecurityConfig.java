@@ -50,6 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
 //                .rememberMe()
                 .logout()
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/login?logout")
                     .permitAll();
 //                .regexMatchers("/register").permitAll()
 //                .regexMatchers("/webjars/.*").permitAll()
