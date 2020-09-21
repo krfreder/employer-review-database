@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 
 @Controller
-@RequestMapping(value = "login")
+//@RequestMapping(value = "login")
 public class UserRegistrationController extends AbstractBaseController {
 
     @GetMapping(value = "register")
@@ -41,10 +41,10 @@ public class UserRegistrationController extends AbstractBaseController {
         return "login";
     }
 
-    @GetMapping
+    @GetMapping(value = "login")
     public String loginUser(Model model, Principal principal, String error, String logout) {
         if (principal != null)
-            return "redirect:/profile";
+            return "profile";
         if (error != null)
             model.addAttribute(MESSAGE_KEY, "danger|The username or password entered is invalid");
         if (logout != null) {
