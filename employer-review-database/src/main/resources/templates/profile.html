@@ -3,6 +3,18 @@
 <head th:replace="fragments :: head"></head>
 <body>
     <h1>What would you like to do?</h1>
-
+    <form>
+        <div class="form-group">
+            <a href="/search">
+                <button class="btn btn-success">Start a Search</button>
+            </a>
+            <a href="add">
+                <button class="btn btn-success">Enter New Job</button>
+            </a>
+            <a href="/profile/myjobs">
+                <button class="btn btn-success">See My Jobs</button>
+            </a>
+        </div>
+    </form>
 </body>
 </html>
