@@ -48,13 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                     .defaultSuccessUrl("/profile", true)
                     .and()
-//                .rememberMe()
                 .logout()
                     .permitAll();
-//                .regexMatchers("/register").permitAll()
-//                .regexMatchers("/webjars/.*").permitAll()
-//                .regexMatchers("/css/.*").permitAll()
-//                .regexMatchers("/login?[^/]*").permitAll()
     }
 
     @Override
