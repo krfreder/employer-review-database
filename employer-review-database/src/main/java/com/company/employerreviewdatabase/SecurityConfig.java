@@ -48,11 +48,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .defaultSuccessUrl("/profile", true)
                     .permitAll()
                     .and()
-//                .rememberMe()
                 .logout()
                     .logoutUrl("/logout")
                     .logoutSuccessUrl("/login?logout")
-                    .permitAll();
+                    .permitAll()
+                    .and()
+                .rememberMe();
 //                .regexMatchers("/register").permitAll()
 //                .regexMatchers("/webjars/.*").permitAll()
 //                .regexMatchers("/css/.*").permitAll()
