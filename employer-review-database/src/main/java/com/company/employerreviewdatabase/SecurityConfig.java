@@ -45,11 +45,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .usernameParameter("username")
-                    .permitAll()
                     .defaultSuccessUrl("/profile", true)
+                    .permitAll()
                     .and()
                 .logout()
+<<<<<<< HEAD
                     .permitAll();
+=======
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/login?logout")
+                    .permitAll()
+                    .and()
+                .rememberMe();
+//                .regexMatchers("/register").permitAll()
+//                .regexMatchers("/webjars/.*").permitAll()
+//                .regexMatchers("/css/.*").permitAll()
+//                .regexMatchers("/login?[^/]*").permitAll()
+>>>>>>> registration
     }
 
     @Override

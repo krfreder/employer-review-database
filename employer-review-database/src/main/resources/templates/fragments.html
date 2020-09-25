@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org"/>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" />
 
 <head th:fragment="head">
     <meta charset="UTF-8" />
@@ -10,6 +10,25 @@
 <body>
 <!--todo create fragment for forms?-->
 <!--    <form th:fragment="forms"></form>-->
+
+<header th:fragment="header">
+    <nav class="navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar" sec:authorize="isAuthenticated()">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/profile}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <form th:action="@{/logout}" method="post" name="logout"></form>
+                    <a class="nav-link" href="#" onclick="document.logout.submit()"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
 </body>
 </html>
