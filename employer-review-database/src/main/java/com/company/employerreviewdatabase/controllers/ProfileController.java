@@ -11,4 +11,19 @@ public class ProfileController {
         return "profile";
     }
 
+    @GetMapping(value = "search")
+    public String search() {
+        return "search";
+    }
+
+    @GetMapping(value = "add")
+    public String add() {
+        return "add";
+    }
+
+    @GetMapping(value = "profile/myjobs")
+    public String myJobs() {
+        return "myjobs";
+    }
+
 }
