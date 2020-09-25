@@ -1,10 +1,6 @@
 package com.company.employerreviewdatabase.controllers;
 
 import org.springframework.stereotype.Controller;
-<<<<<<< HEAD
-import org.springframework.ui.Model;
-=======
->>>>>>> registration
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -15,8 +11,6 @@ public class ProfileController {
         return "profile";
     }
 
-<<<<<<< HEAD
-=======
     @GetMapping(value = "search")
     public String search() {
         return "search";
@@ -31,6 +25,5 @@ public class ProfileController {
     public String myJobs() {
         return "myjobs";
     }
->>>>>>> registration
 
 }
