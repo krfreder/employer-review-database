@@ -1,6 +1,7 @@
 package com.company.employerreviewdatabase.models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -8,20 +9,28 @@ import java.util.Objects;
 @Entity
 public class Job extends AbstractEntity {
 
+    @ManyToOne
+    private Company company;
+
     private String jobTitle;
 
     private int salary;
 
-    private List<Company> companies = new ArrayList<>();
+//    private List<Company> companies = new ArrayList<>();
 
     public Job() {};
 
-    public Job(String jobTitle, int salary) {
+    public Job(Company company, String jobTitle, int salary) {
+        this.company = company;
         this.jobTitle = jobTitle;
         this.salary = salary;
     }
 
 //    getters and setters
+
+    public Company getCompany() { return company; }
+
+    public void setCompany(Company company) { this.company = company; }
 
     public String getJobTitle() { return jobTitle; }
 
@@ -31,35 +40,35 @@ public class Job extends AbstractEntity {
 
     public void setSalary(int salary) { this.salary = salary; }
 
-    public List<Company> getCompanies() { return companies; }
+//    public List<Company> getCompanies() { return companies; }
 
-    public void setCompanies(List<Company> companies) { this.companies = companies; }
+//    public void setCompanies(List<Company> companies) { this.companies = companies; }
 
 //    equals, hashcode, toString
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Job job = (Job) o;
-        return getSalary() == job.getSalary() &&
-                Objects.equals(getJobTitle(), job.getJobTitle()) &&
-                Objects.equals(getCompanies(), job.getCompanies());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getJobTitle(), getSalary(), getCompanies());
-    }
-
-    @Override
-    public String toString() {
-        return "Job{" +
-                "jobTitle='" + jobTitle + '\'' +
-                ", salary=" + salary +
-                ", companies=" + companies +
-                '}';
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        if (!super.equals(o)) return false;
+//        Job job = (Job) o;
+//        return getSalary() == job.getSalary() &&
+//                Objects.equals(getJobTitle(), job.getJobTitle()) &&
+//                Objects.equals(getCompanies(), job.getCompanies());
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(super.hashCode(), getJobTitle(), getSalary(), getCompanies());
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Job{" +
+//                "jobTitle='" + jobTitle + '\'' +
+//                ", salary=" + salary +
+//                ", companies=" + companies +
+//                '}';
+//    }
 
 }
