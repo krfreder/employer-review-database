@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org"/>
 <head th:replace="fragments :: head"></head>
-<body>
+<body class="container">
 
     <header th:replace="fragments :: header"></header>
     <h1>To enter a new job, please fill out the following:</h1>
-
+    <form method="post" th:action="@{/add}">
+        <div class="form-group">
+            <label>Job Title
+                <input type="text" name="jobTitle" class="form-control" th:value="*{job.jobTitle}"/>
+                <div class="has-error" th:errors="*{job.jobTitle}"></div>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Salary
+                <input type="number" name="salary" class="form-control" th:value="*{job.salary}"/>
+                <div class="has-error" th:errors="*{job.salary}"></div>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Location
+                <input type="text" name="location" class="form-control" th:value="*{company.location}"/>
+                <div class="has-error" th:errors="*{company.location}"></div>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Company
+                <input type="text" name="company" class="form-control" th:value="*{company.company}"/>
+                <div class="has-error" th:errors="*{company.company}"></div>
+            </label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" value="Add Job">Add My Job</button>
+        </div>
+    </form>
 </body>
 </html>
