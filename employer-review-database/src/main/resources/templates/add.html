@@ -8,26 +8,26 @@
     <form method="post" th:action="@{/add}">
         <div class="form-group">
             <label>Job Title
-                <input type="text" name="jobTitle" class="form-control" th:value="*{job.jobTitle}"/>
-                <div class="has-error" th:errors="*{job.jobTitle}"></div>
+                <input type="text" name="jobTitle" class="form-control" th:field="${job.name}"/>
+                <div class="has-error" th:errors="${job.name}"></div>
             </label>
         </div>
         <div class="form-group">
             <label>Salary
-                <input type="number" name="salary" class="form-control" th:value="*{job.salary}"/>
-                <div class="has-error" th:errors="*{job.salary}"></div>
+                <input type="number" name="salary" class="form-control" th:field="${job.salary}"/>
+                <div class="has-error" th:errors="${job.salary}"></div>
             </label>
         </div>
         <div class="form-group">
             <label>Location
-                <input type="text" name="location" class="form-control" th:value="*{company.location}"/>
-                <div class="has-error" th:errors="*{company.location}"></div>
+                <input type="text" name="location" class="form-control" th:field="${company.location}"/>
+                <div class="has-error" th:errors="${company.location}"></div>
             </label>
         </div>
         <div class="form-group">
             <label>Company
-                <input type="text" name="company" class="form-control" th:value="*{company.company}"/>
-                <div class="has-error" th:errors="*{company.company}"></div>
+                <input type="text" name="company" class="form-control" th:field="${company.name}"/>
+                <div class="has-error" th:errors="${company.name}"></div>
             </label>
         </div>
         <div class="form-group">
@@ -36,3 +36,6 @@
     </form>
 </body>
 </html>
+
+<!--Company objects are being calling incorrectly but Job objects are being called properly. Information from job objects not being submitted to database b/c "Company ID" is not present - has this been set up to process Company before Job?-->
+<!--Collapse the Company and Job models into one (Job). Then, the JobController will serve to handle that data-->

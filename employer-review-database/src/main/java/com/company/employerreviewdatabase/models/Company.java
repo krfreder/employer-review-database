@@ -2,6 +2,7 @@ package com.company.employerreviewdatabase.models;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Objects;
 @Entity
 public class Company extends AbstractEntity {
 
-    private String company;
+//    private String company;
 
     private String location;
 
@@ -20,17 +21,17 @@ public class Company extends AbstractEntity {
 
     public Company() {};
 
-    public Company(String company, String location, List<Job> jobs) {
-        this.company = company;
+    public Company(String location, List<Job> jobs) {
+//        this.company = company;
         this.location = location;
         this.jobs = jobs;
     }
 
 //    getters, setters
 
-    public String getCompany() { return company; }
-
-    public void setCompany(String company) { this.company = company; }
+//    public String getCompany() { return company; }
+//
+//    public void setCompany(String company) { this.company = company; }
 
     public String getLocation() { return location; }
 
