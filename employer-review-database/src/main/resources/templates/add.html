@@ -7,27 +7,27 @@
     <h1>To enter a new job, please fill out the following:</h1>
     <form method="post" th:action="@{/add}">
         <div class="form-group">
-            <label>Job Title
-                <input type="text" name="jobTitle" class="form-control" th:field="${job.jobTitle}"/>
-                <div class="has-error" th:errors="${job.jobTitle}"></div>
+            <label th:for="jobTitle">Job Title
+                <input type="text" class="form-control" th:field="*{job.jobTitle}"/>
+                <div class="has-error" th:errors="*{job.jobTitle}"></div>
             </label>
         </div>
         <div class="form-group">
-            <label>Salary
-                <input type="number" name="salary" class="form-control" th:field="${job.salary}"/>
-                <div class="has-error" th:errors="${job.salary}"></div>
+            <label th:for="salary">Salary
+                <input type="number" class="form-control" th:field="*{job.salary}"/>
+                <div class="has-error" th:errors="*{job.salary}"></div>
             </label>
         </div>
         <div class="form-group">
-            <label>Location
-                <input type="text" name="location" class="form-control" th:field="${job.location}"/>
-                <div class="has-error" th:errors="${job.location}"></div>
+            <label th:for="location">Location
+                <input type="text" class="form-control" th:field="*{job.location}"/>
+                <div class="has-error" th:errors="*{job.location}"></div>
             </label>
         </div>
         <div class="form-group">
-            <label>Company
-                <input type="text" name="company" class="form-control" th:field="${job.company}"/>
-                <div class="has-error" th:errors="${job.company}"></div>
+            <label th:for="company">Company
+                <input type="text" class="form-control" th:field="*{job.company}"/>
+                <div class="has-error" th:errors="*{job.company}"></div>
             </label>
         </div>
         <div class="form-group">

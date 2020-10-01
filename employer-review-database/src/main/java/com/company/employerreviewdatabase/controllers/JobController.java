@@ -20,22 +20,21 @@ public class JobController extends AbstractBaseController{
 
     @GetMapping("add")
     public String displayAddForm(Model model) {
-        model.addAttribute("title", "Add Job");
         model.addAttribute(new Job());
+        model.addAttribute("title", "Add Job");
         return "add";
     }
 
     @PostMapping("add")
-    public String processAddForm(@ModelAttribute @Valid Job newJob, Model model, Errors errors) {
+    public String processAddForm(@ModelAttribute @Valid Job newJob, Errors errors) {
 
         if(errors.hasErrors()) {
-            model.addAttribute("title", "Add Job");
             return "add";
         }
 
         jobRepository.save(newJob);
 
-        return "redirect:";
+        return "myjobs";
     }
 
 

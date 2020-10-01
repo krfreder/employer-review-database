@@ -1,16 +1,25 @@
 package com.company.employerreviewdatabase.models;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
+
 
 @Entity
 public class Job extends AbstractEntity {
 
+    @NotBlank(message = "Please enter your Job Title.")
     private String jobTitle;
 
+    @NotBlank(message = "Please enter the Company or Organization you work(ed) for.")
     private String company;
 
+    @NotBlank(message = "Please enter the location of your role.")
     private String location;
 
+    @Positive
+    @Min(value = 4, message = "Please enter your yearly salary. If you work hourly, please estimate your yearly take home pay.")
     private int salary;
 
     public Job() { }
