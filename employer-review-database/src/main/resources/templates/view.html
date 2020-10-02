@@ -3,5 +3,19 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
+    <header th:replace="fragments :: header"></header>
+
+    <div class="table-striped">
+        <table class="table">
+            <tr th:each="job : ${jobs}">
+                <td>
+                    <p th:text="${'Job Title: ' + job.jobTitle}"></p>
+                    <p th:text="${'Employer: ' + job.company}"></p>
+                    <p th:text="${'Location: ' + job.location}"></p>
+                    <p th:text="${'Salary: ' + job.salary}"></p>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

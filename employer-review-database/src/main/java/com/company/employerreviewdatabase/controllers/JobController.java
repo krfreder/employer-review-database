@@ -27,7 +27,6 @@ public class JobController extends AbstractBaseController{
 
     @PostMapping("add")
     public String processAddForm(@ModelAttribute @Valid Job newJob, Errors errors) {
-
         if(errors.hasErrors()) {
             return "add";
         }
@@ -35,6 +34,12 @@ public class JobController extends AbstractBaseController{
         jobRepository.save(newJob);
 
         return "myjobs";
+    }
+
+    @GetMapping("view")
+    public String viewAllJobs(Model model) {
+        model.addAttribute("jobs", jobRepository.findAll());
+        return "view";
     }
 
 
