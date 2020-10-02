@@ -21,9 +21,9 @@ public class ProfileController {
 //        return "add";
 //    }
 
-//    @GetMapping(value = "profile/myjobs")
-//    public String myJobs() {
-//        return "myjobs";
-//    }
+    @GetMapping(value = "profile/myjobs")
+    public String myJobs() {
+        return "myjobs";
+    }
 
 }
