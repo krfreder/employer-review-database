@@ -4,19 +4,24 @@
 <body class="container">
     <h1>Don't have a Username?</h1>
     <p><a href="/register">Sign Up Here.</a></p>
+
+    <div th:replace="fragments :: messages"></div>
+
     <form th:action="@{/login}" method="post">
         <div class="form-group">
-            <label th:for="username"> Username:
-                <input type="text" class="form-control"/>
+            <label> Username:
+                <input type="text" class="form-control" name="username"/>
             </label>
         </div>
+
         <div class="form-group">
-            <label th:for="password"> Password:
-                <input type="password" class="form-control"/>
+            <label> Password:
+                <input type="password" class="form-control" name="password"/>
             </label>
         </div>
+
         <div class="form-group">
-            <input type="submit" value="Sign In" class="btn btn-success"/>
+            <button type="submit" class="btn btn-success">Sign In</button>
         </div>
     </form>
 </body>

@@ -1,7 +1,6 @@
 package com.company.employerreviewdatabase.models;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ public class User extends AbstractEntity {
     private String username;
 
     @NotBlank
-    @Min(value = 5, message = "Password must be at least 5 characters long.")
     private String password;
 
     @NotNull

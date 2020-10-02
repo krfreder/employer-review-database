@@ -30,5 +30,15 @@
     </nav>
 </header>
 
+<div th:fragment="messages" class="container-fluid">
+    <div th:if="${message != null}"
+         th:with="parts=${#strings.arraySplit(message, '|')}"
+         th:attr="class=${'alert alert-dismissible alert-' + parts[0]}"
+         role="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <div th:text="${parts[1]}"></div>
+    </div>
+</div>
+
 </body>
 </html>
