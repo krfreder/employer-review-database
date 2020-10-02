@@ -1,7 +1,9 @@
 package com.company.employerreviewdatabase.models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Culture extends AbstractEntity{
@@ -22,4 +24,11 @@ public class Culture extends AbstractEntity{
         cultureDescriptors.add("Clear-Communication");
     }
 
+    @ManyToMany(mappedBy = "culture")
+    private List<Job> jobs = new ArrayList<>();
+
+//    getters and setters
+    public List<Job> getJobs() { return jobs; }
+
+    public void setJobs(List<Job> jobs) { this.jobs = jobs; }
 }
