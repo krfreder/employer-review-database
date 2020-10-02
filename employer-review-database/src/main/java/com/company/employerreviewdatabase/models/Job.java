@@ -22,6 +22,8 @@ public class Job extends AbstractEntity {
     @Min(value = 4, message = "Please enter your yearly salary. If you work hourly, please estimate your yearly take home pay.")
     private int salary;
 
+
+
     public Job() { }
 
     public Job(String jobTitle, String company, String location, int salary) {
