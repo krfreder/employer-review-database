@@ -30,13 +30,15 @@
                 <div class="has-error" th:errors="*{job.company}"></div>
             </label>
         </div>
-<!--        todo: can see label, cannot see checkboxes of touchstones-->
         <div class="form-group">
             <label th:for="cultures">Please select up to 3 Cultural Touchstones:
-                <th:block th:each="culture : ${cultures}">
-                    <input type="checkbox" name="cultures" th:value="${culture.id}">
-                    <label th:text="${culture}"></label>
+                <br>
+                <th:block th:each="culture : *{cultures}">
+                    <input type="checkbox" name="cultures" th:value="*{culture.id}">
+                    <label th:text="*{culture.descriptor}"></label>
                 </th:block>
+                <br>
+                <a th:href="@{'/add/culture'}">Add New Cultural Touchstone</a>
             </label>
         </div>
 

@@ -35,12 +35,14 @@ public class JobController extends AbstractBaseController{
 
     @PostMapping("add")
     public String processAddForm(@ModelAttribute @Valid Job newJob, Errors errors, @RequestParam List<Integer> cultures) {
+//    public String processAddForm(@ModelAttribute @Valid Job newJob, Errors errors) {
+
         if(errors.hasErrors()) {
             return "add";
         }
 
         List<Culture> cultureObjs = (List<Culture>) cultureRepository.findAllById(cultures);
-        newJob.setCulture(cultureObjs);
+        newJob.setCultures(cultureObjs);
 
         jobRepository.save(newJob);
 

@@ -2,12 +2,12 @@ package com.company.employerreviewdatabase.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+//import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 import java.util.ArrayList;
 import java.util.List;
-
 
 @Entity
 public class Job extends AbstractEntity {
@@ -26,17 +26,16 @@ public class Job extends AbstractEntity {
     private int salary;
 
     @ManyToMany
-    private List<Culture> culture = new ArrayList<>();
-
+    private List<Culture> cultures = new ArrayList<>();
 
     public Job() { }
 
-    public Job(String jobTitle, String company, String location, int salary, List<Culture> culture) {
+    public Job(String jobTitle, String company, String location, int salary, List<Culture> cultures) {
         this.jobTitle = jobTitle;
         this.company = company;
         this.location = location;
         this.salary = salary;
-        this.culture = culture;
+        this.cultures = cultures;
     }
 
 //    getters and setters
@@ -57,11 +56,11 @@ public class Job extends AbstractEntity {
 
     public void setSalary(int salary) { this.salary = salary; }
 
-    public List<Culture> getCulture() { return culture; }
+    public List<Culture> getCultures() { return cultures; }
 
-    public void setCulture(List<Culture> culture) { this.culture = culture; }
+    public void setCultures(List<Culture> cultures) { this.cultures = cultures; }
 // this might not be necessary?
-    public void addCulture(Culture culture) {this.culture.add(culture);}
+    public void addCultures(Culture cultures) {this.cultures.add(cultures);}
 
     //    to String
 //    @Override
@@ -81,7 +80,7 @@ public class Job extends AbstractEntity {
                 ", company='" + company + '\'' +
                 ", location='" + location + '\'' +
                 ", salary=" + salary +
-                ", culture=" + culture +
+                ", culture=" + cultures +
                 '}';
     }
 }
