@@ -10,7 +10,7 @@ public class Identity {
 
     private String gender;
 
-    private String isTrans;
+    private String transgender;
 
     private String sexualOrientation;
 
@@ -22,12 +22,12 @@ public class Identity {
 
     public Identity() {}
 
-    @ManyToMany(mappedBy = "identitys")
+    @ManyToMany(mappedBy = "identities")
     private List<Job> jobs = new ArrayList<>();
 
-    public Identity(String gender, String isTrans, String sexualOrientation, String ageRange, String ethnicity, String abilityStatus, List<Job> jobs) {
+    public Identity(String gender, String transgender, String sexualOrientation, String ageRange, String ethnicity, String abilityStatus, List<Job> jobs) {
         this.gender = gender;
-        this.isTrans = isTrans;
+        this.transgender = transgender;
         this.sexualOrientation = sexualOrientation;
         this.ageRange = ageRange;
         this.ethnicity = ethnicity;
@@ -42,9 +42,9 @@ public class Identity {
 
     public void setGender(String gender) { this.gender = gender; }
 
-    public String getIsTrans() { return isTrans; }
+    public String getIsTrans() { return transgender; }
 
-    public void setIsTrans(String isTrans) { this.isTrans = isTrans; }
+    public void setIsTrans(String isTrans) { this.transgender = isTrans; }
 
     public String getSexualOrientation() { return sexualOrientation; }
 

@@ -2,7 +2,6 @@ package com.company.employerreviewdatabase.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-//import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
@@ -28,14 +27,18 @@ public class Job extends AbstractEntity {
     @ManyToMany
     private List<Culture> cultures = new ArrayList<>();
 
+    @ManyToMany
+    private List<Identity> identities = new ArrayList<>();
+
     public Job() { }
 
-    public Job(String jobTitle, String company, String location, int salary, List<Culture> cultures) {
+    public Job(String jobTitle, String company, String location, int salary, List<Culture> cultures, List<Identity> identities) {
         this.jobTitle = jobTitle;
         this.company = company;
         this.location = location;
         this.salary = salary;
         this.cultures = cultures;
+        this.identities = identities;
     }
 
 //    getters and setters
@@ -60,7 +63,14 @@ public class Job extends AbstractEntity {
 
     public void setCultures(List<Culture> cultures) { this.cultures = cultures; }
 // this might not be necessary?
-    public void addCultures(Culture cultures) {this.cultures.add(cultures);}
+    public void addCultures(Culture cultures) { this.cultures.add(cultures); }
+
+    public List<Identity> getIdentities() { return identities; }
+
+    public void setIdentities(List<Identity> identities) { this.identities = identities; }
+//    this might not be necessary?
+    public void addIdentities(Identity identities) { this.identities.add(identities); }
+
 
     //    to String
 //    @Override
@@ -70,6 +80,7 @@ public class Job extends AbstractEntity {
 //                ", company='" + company + '\'' +
 //                ", location='" + location + '\'' +
 //                ", salary=" + salary +
+//                ", culture=" + cultures +
 //                '}';
 //    }
 
@@ -80,7 +91,8 @@ public class Job extends AbstractEntity {
                 ", company='" + company + '\'' +
                 ", location='" + location + '\'' +
                 ", salary=" + salary +
-                ", culture=" + cultures +
+                ", cultures=" + cultures +
+                ", identities=" + identities +
                 '}';
     }
 }
