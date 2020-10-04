@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"/>
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+<form method="post" th:action="@{/add/culture}">
+    <div class="form-group">
+        <label th:for="descriptor">Please enter a new Cultural Touchstone:
+            <input type="text" class="form-control" th:field="*{culture.descriptor}"/>
+            <div class="has-error" th:errors="*{culture.descriptor}"></div>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Add Descriptor">Add Cultural Touchstone</button>
+    </div>
+</form>
+
+</body>
+</html>
