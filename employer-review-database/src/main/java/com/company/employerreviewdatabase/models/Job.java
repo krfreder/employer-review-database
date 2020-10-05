@@ -73,17 +73,6 @@ public class Job extends AbstractEntity {
 
 
     //    to String
-//    @Override
-//    public String toString() {
-//        return "Job{" +
-//                "jobTitle='" + jobTitle + '\'' +
-//                ", company='" + company + '\'' +
-//                ", location='" + location + '\'' +
-//                ", salary=" + salary +
-//                ", culture=" + cultures +
-//                '}';
-//    }
-
     @Override
     public String toString() {
         return "Job{" +

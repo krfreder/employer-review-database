@@ -16,11 +16,6 @@ public class ProfileController {
         return "search";
     }
 
-//    @GetMapping(value = "add")
-//    public String add() {
-//        return "add";
-//    }
-
     @GetMapping(value = "profile/myjobs")
     public String myJobs() {
         return "myjobs";
