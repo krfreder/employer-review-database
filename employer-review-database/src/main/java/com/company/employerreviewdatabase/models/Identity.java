@@ -3,6 +3,7 @@ package com.company.employerreviewdatabase.models;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Entity
