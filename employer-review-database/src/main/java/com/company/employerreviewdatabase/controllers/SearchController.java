@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 @Controller
 @RequestMapping("search")
-public class SearchController extends AbstractBaseController{
+public class SearchController{
 
     @Autowired
     private JobRepository jobRepository;
