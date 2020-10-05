@@ -3,7 +3,10 @@
 <head th:replace="fragments :: head"></head>
 <body>
     <header th:replace="fragments :: header"></header>
-    <h1>What would you like to do?</h1>
+
+    <h1 th:inline = "text">Welcome Back [[${#httpServletRequest.remoteUser}]]</h1>
+    <h2>What would you like to do?</h2>
+
     <div class>
         <a href="/search">
             <button class="btn btn-success">Start a Search</button>
