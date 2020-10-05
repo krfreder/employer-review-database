@@ -2,25 +2,21 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org"/>
 <head th:replace="fragments :: head"></head>
 <body>
+
     <header th:replace="fragments :: header"></header>
 
-    <h1>To start a new search, please fill out the following:</h1>
-
-    <form th:action="@{/search/results}" method = "post">
+<!--    <h1>To start a new search, please fill out the following:</h1>-->
+    <form th:action="@{/search/result}" method = "post">
         <h2>Search by:</h2>
 
-        <p>
-            <span th:each="column : ${columns}">
-                <input
-                        type="radio"
-                        name="searchType"
-                        th:id="${column.key}"
-                        th:value="${column.key}"
-                        th:checked="${column.key == 'all'}"/>
-                <label th:for="${column.key}" th:text="${column.value}"></label>
-            </span>
-
-        </p>
+        <div class="form-group">
+            <label th:for="columns">
+                <th:block th:each="column : *{columns}">
+                    <input type="radio" name="searchType" th:id="*{column.key}" th:value="*{column.key}" th:checked="*{column.key == 'all'}">
+                    <label th:for="*{column.key}" th:text="*{column.value}"></label>
+                </th:block>
+            </label>
+        </div>
 
         <p>
             <label for="searchTerm">Keyword:</label>
@@ -70,6 +66,5 @@
     <a href="/view">
         <button class="btn btn-success">View All Jobs</button>
     </a>
-
 </body>
 </html>
