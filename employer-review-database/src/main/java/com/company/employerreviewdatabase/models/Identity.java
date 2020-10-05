@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Identity {
+public class Identity extends AbstractEntity {
 
     private String gender;
 
@@ -20,10 +20,10 @@ public class Identity {
 
     private String abilityStatus;
 
-    public Identity() {}
-
     @ManyToMany(mappedBy = "identities")
     private List<Job> jobs = new ArrayList<>();
+
+    public Identity() {}
 
     public Identity(String gender, String transgender, String sexualOrientation, String ageRange, String ethnicity, String abilityStatus, List<Job> jobs) {
         this.gender = gender;
@@ -36,15 +36,13 @@ public class Identity {
     }
 
 //    getters and setters
-
-
     public String getGender() { return gender; }
 
     public void setGender(String gender) { this.gender = gender; }
 
-    public String getIsTrans() { return transgender; }
+    public String getTransgender() { return transgender; }
 
-    public void setIsTrans(String isTrans) { this.transgender = isTrans; }
+    public void setTransgender(String isTrans) { this.transgender = isTrans; }
 
     public String getSexualOrientation() { return sexualOrientation; }
 
