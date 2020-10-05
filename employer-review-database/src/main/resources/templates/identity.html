@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"/>
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+<form method="post" th:action="@{/add/identity}">
+    <div class="form-group">
+        <label th:for="gender">Please enter a new identity marker for the category Gender:
+            <input type="text" class="form-control" th:field="*{identity.gender}"/>
+            <div class="has-error" th:errors="*{identity.gender}"></div>
+        </label>
+    </div>
+    <div class="form-group">
+        <label th:for="transgender">Please enter a new identity marker for the category Transgender:
+            <input type="text" class="form-control" th:field="*{identity.transgender}"/>
+            <div class="has-error" th:errors="*{identity.transgender}"></div>
+        </label>
+    </div>
+    <div class="form-group">
+        <label th:for="sexualOrientation">Please enter a new identity marker for the category Sexual Orientation:
+            <input type="text" class="form-control" th:field="*{identity.sexualOrientation}"/>
+            <div class="has-error" th:errors="*{identity.sexualOrientation}"></div>
+        </label>
+    </div>
+    <div class="form-group">
+        <label th:for="ageRange">Please enter a new identity marker for the category Age Range:
+            <input type="text" class="form-control" th:field="*{identity.ageRange}"/>
+            <div class="has-error" th:errors="*{identity.ageRange}"></div>
+        </label>
+    </div>
+    <div class="form-group">
+        <label th:for="ethnicity">Please enter a new identity marker for the category Ethnicity:
+            <input type="text" class="form-control" th:field="*{identity.ethnicity}"/>
+            <div class="has-error" th:errors="*{identity.ethnicity}"></div>
+        </label>
+    </div>
+    <div class="form-group">
+        <label th:for="abilityStatus">Please enter a new identity marker for the category Ability Status:
+            <input type="text" class="form-control" th:field="*{identity.abilityStatus}"/>
+            <div class="has-error" th:errors="*{identity.abilityStatus}"></div>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Add Markers">Add Cultural Touchstone</button>
+    </div>
+</form>
+
+</body>
+</html>
