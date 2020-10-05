@@ -28,8 +28,8 @@ public class UserServiceImplement implements UserService {
 
         User newUser = new User(
           userDTO.getUsername(),
-          passwordEncoder.encode(userDTO.getPassword()),
-          userDTO.getJobs());
+          passwordEncoder.encode(userDTO.getPassword()));
+//          userDTO.getJobs());
         userRepository.save(newUser);
 
         return newUser;

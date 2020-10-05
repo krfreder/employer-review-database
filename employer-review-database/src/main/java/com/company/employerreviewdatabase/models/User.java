@@ -19,14 +19,14 @@ public class User extends AbstractEntity {
     @NotNull
     private Boolean isEnabled = true;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private List<Job> jobs = new ArrayList<>();
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private List<Job> jobs = new ArrayList<>();
 
 //    @JoinColumn(name = "user_id")
 
     public User() {}
 // validation messages within user object (can be moved to variable declaration)
-    public User(@NotBlank String username, @NotBlank String password, List<Job> jobs) {
+    public User(@NotBlank String username, @NotBlank String password) {
         if (username == null || username.length() == 0)
             throw new IllegalArgumentException("Please enter your username");
         if (password== null || password.length() == 0)
@@ -34,7 +34,7 @@ public class User extends AbstractEntity {
 
         this.username = username;
         this.password = password;
-        this.jobs = jobs;
+//        this.jobs = jobs;
     }
 //    when a new user is made, assign them user role and return info to use
     public List<String> getUserRoles() {
@@ -55,9 +55,9 @@ public class User extends AbstractEntity {
 
     public void setEnabled(Boolean enabled) { isEnabled = enabled; }
 
-    public List<Job> getJobs() { return jobs; }
+//    public List<Job> getJobs() { return jobs; }
 
-    public void setJobs(List<Job> jobs) { this.jobs = jobs; }
+//    public void setJobs(List<Job> jobs) { this.jobs = jobs; }
 
     //equals, hashcode, toString
     @Override

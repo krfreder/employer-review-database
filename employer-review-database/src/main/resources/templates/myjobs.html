@@ -5,7 +5,7 @@
 <!--todo replace myjobs.html with view.html-->
     <header th:replace="fragments :: header"></header>
 
-    <h1>You have submitted:</h1>
+    <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]] has submitted:</h1>
 
 </body>
 </html>

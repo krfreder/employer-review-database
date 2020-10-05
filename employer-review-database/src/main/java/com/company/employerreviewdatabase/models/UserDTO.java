@@ -24,7 +24,7 @@ public class UserDTO{
 //    @OneToMany
 //    @JoinColumn(name = "user_id")
 //    @OneToOne(cascade = CascadeType.ALL)
-    private List<Job> jobs = new ArrayList<>();
+//    private List<Job> jobs = new ArrayList<>();
 
 
     public UserDTO() {}
@@ -47,9 +47,9 @@ public class UserDTO{
         checkPasswordForRegistration();
     }
 
-    public List<Job> getJobs() { return jobs; }
+//    public List<Job> getJobs() { return jobs; }
 
-    public void setJobs(List<Job> jobs) { this.jobs = jobs; }
+//    public void setJobs(List<Job> jobs) { this.jobs = jobs; }
 // password check method
     private void checkPasswordForRegistration() {
         if(!getPassword().equals(passwordMatch)) {

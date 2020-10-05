@@ -2,8 +2,8 @@ package com.company.employerreviewdatabase.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+//import javax.persistence.ManyToOne;
+//import javax.persistence.OneToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
@@ -26,9 +26,9 @@ public class Job extends AbstractEntity {
     @Min(value = 4, message = "Please enter your yearly salary. If you work hourly, please estimate your yearly take home pay.")
     private int salary;
 
-    @OneToOne(mappedBy = "job")
+//    @OneToOne(mappedBy = "job")
 //    private UserDTO userDTO;
-    private User user;
+//    private User user;
 
     @ManyToMany
     private List<Culture> cultures = new ArrayList<>();
@@ -38,13 +38,13 @@ public class Job extends AbstractEntity {
 
     public Job() { }
 
-    public Job(String jobTitle, String company, String location, int salary, User aUser, List<Culture> cultures, List<Identity> identities) {
+    public Job(String jobTitle, String company, String location, int salary, List<Culture> cultures, List<Identity> identities) {
         super();
         this.jobTitle = jobTitle;
         this.company = company;
         this.location = location;
         this.salary = salary;
-        this.user = aUser;
+//        this.user = aUser;
         this.cultures = cultures;
         this.identities = identities;
     }
@@ -76,13 +76,13 @@ public class Job extends AbstractEntity {
 //    }
 
 
-    public User getUser() {
-        return user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public List<Culture> getCultures() { return cultures; }
 
@@ -98,17 +98,17 @@ public class Job extends AbstractEntity {
 
 
     //    to String
-//    @Override
-//    public String toString() {
-//        return "Job{" +
-//                "jobTitle='" + jobTitle + '\'' +
-//                ", company='" + company + '\'' +
-//                ", location='" + location + '\'' +
-//                ", salary=" + salary +
-//                ", cultures=" + cultures +
-//                ", identities=" + identities +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Job{" +
+                "jobTitle='" + jobTitle + '\'' +
+                ", company='" + company + '\'' +
+                ", location='" + location + '\'' +
+                ", salary=" + salary +
+                ", cultures=" + cultures +
+                ", identities=" + identities +
+                '}';
+    }
 
 
 //    @Override
@@ -125,16 +125,16 @@ public class Job extends AbstractEntity {
 //    }
 
 
-    @Override
-    public String toString() {
-        return "Job{" +
-                "jobTitle='" + jobTitle + '\'' +
-                ", company='" + company + '\'' +
-                ", location='" + location + '\'' +
-                ", salary=" + salary +
-                ", user=" + user +
-                ", cultures=" + cultures +
-                ", identities=" + identities +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Job{" +
+//                "jobTitle='" + jobTitle + '\'' +
+//                ", company='" + company + '\'' +
+//                ", location='" + location + '\'' +
+//                ", salary=" + salary +
+//                ", user=" + user +
+//                ", cultures=" + cultures +
+//                ", identities=" + identities +
+//                '}';
+//    }
 }
