@@ -1,17 +1,16 @@
 package com.company.employerreviewdatabase.models;
 
-//import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 public class UserDTO {
 // variable declarations
-    @NotNull(message = "Please enter a username")
-    private String username;
+@NotBlank(message = "Please enter a username")
+private String username;
 
-    @NotNull(message = "Please enter a password")
+    @NotBlank(message = "Please enter a password")
     private String password;
 
-    @NotNull(message = "Please re-enter your password")
+    @NotBlank(message = "Please re-enter your password")
     private String passwordMatch;
 
     public UserDTO() {}
