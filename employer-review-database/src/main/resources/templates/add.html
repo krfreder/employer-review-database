@@ -41,39 +41,48 @@
                 <a th:href="@{'/add/culture'}">Add New Cultural Touchstone</a>
             </label>
         </div>
+
         <div class="form-group">
-            <label th:for="identities">Please share with us how your identified when at this job:
-                <br>
+            <label th:for="identities">
                 <th:block th:each="identity : *{identities}">
-                    <label>Gender:
-                        <input type="checkbox" name="identities" th:value="*{identity.id}">
-                        <label th:text="*{identity.gender}"></label>
-                    </label><br>
-                    <label>Would you describe yourself as transgender?
-                        <input type="checkbox" name="identities" th:value="*{identity.id}">
-                        <label th:text="*{identity.transgender}"></label>
-                    </label><br>
-                    <label>Which of the following best describes your sexual orientation?
-                        <input type="checkbox" name="identities" th:value="*{identity.id}">
-                        <label th:text="*{identity.sexualOrientation}"></label>
-                    </label><br>
-                    <label>Age Range:
-                        <input type="checkbox" name="identities" th:value="*{identity.id}">
-                        <label th:text="*{identity.ageRange}"></label>
-                    </label><br>
-                    <label>Which categories best describe your ethnicity?
-                        <input type="checkbox" name="identities" th:value="*{identity.id}">
-                        <label th:text="*{identity.ethnicity}"></label>
-                    </label><br>
-                    <label>Which of the following have been diagnosed?
-                        <input type="checkbox" name="identities" th:value="*{identity.id}">
-                        <label th:text="*{identity.abilityStatus}"></label>
-                    </label>
+                    <input type="checkbox" name="identities" th:id="*{identity.key}" th:value="*{identity.value}">
+                    <label th:for="*{identity.key}" th:text="*{identity.value}"></label>
                 </th:block>
             </label>
-            <br>
-            <a th:href="@{'/add/identity'}">Add New Identity Marker</a>
         </div>
+<!--        <div class="form-group">-->
+<!--            <label th:for="identities">Please share with us how your identified when at this job:-->
+<!--                <br>-->
+<!--                <th:block th:each="identity : *{identities}">-->
+<!--                    <label>Gender:-->
+<!--                        <input type="checkbox" name="identities" th:value="*{identity.id}">-->
+<!--                        <label th:text="*{identity.gender}"></label>-->
+<!--                    </label><br>-->
+<!--                    <label>Would you describe yourself as transgender?-->
+<!--                        <input type="checkbox" name="identities" th:value="*{identity.id}">-->
+<!--                        <label th:text="*{identity.transgender}"></label>-->
+<!--                    </label><br>-->
+<!--                    <label>Which of the following best describes your sexual orientation?-->
+<!--                        <input type="checkbox" name="identities" th:value="*{identity.id}">-->
+<!--                        <label th:text="*{identity.sexualOrientation}"></label>-->
+<!--                    </label><br>-->
+<!--                    <label>Age Range:-->
+<!--                        <input type="checkbox" name="identities" th:value="*{identity.id}">-->
+<!--                        <label th:text="*{identity.ageRange}"></label>-->
+<!--                    </label><br>-->
+<!--                    <label>Which categories best describe your ethnicity?-->
+<!--                        <input type="checkbox" name="identities" th:value="*{identity.id}">-->
+<!--                        <label th:text="*{identity.ethnicity}"></label>-->
+<!--                    </label><br>-->
+<!--                    <label>Which of the following have been diagnosed?-->
+<!--                        <input type="checkbox" name="identities" th:value="*{identity.id}">-->
+<!--                        <label th:text="*{identity.abilityStatus}"></label>-->
+<!--                    </label>-->
+<!--                </th:block>-->
+<!--            </label>-->
+<!--            <br>-->
+<!--            <a th:href="@{'/add/identity'}">Add New Identity Marker</a>-->
+<!--        </div>-->
 
         <div class="form-group">
             <button type="submit" class="btn btn-success" value="Add Job">Add My Job</button>
