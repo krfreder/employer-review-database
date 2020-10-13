@@ -4,8 +4,13 @@ import javax.validation.constraints.NotBlank;
 
 public class UserDTO {
 // variable declarations
+<<<<<<< HEAD
 @NotBlank(message = "Please enter a username")
 private String username;
+=======
+    @NotBlank(message = "Please enter a username")
+    private String username;
+>>>>>>> search
 
     @NotBlank(message = "Please enter a password")
     private String password;

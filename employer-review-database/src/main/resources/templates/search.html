@@ -2,13 +2,93 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org"/>
 <head th:replace="fragments :: head"></head>
 <body>
+
     <header th:replace="fragments :: header"></header>
 
-    <h1>To start a new search, please fill out the following:</h1>
+<!--    <h1>To start a new search, please fill out the following:</h1>-->
+    <form th:action="@{/search/result}" method="post">
+        <h2>Search by:</h2>
+
+<!--        <div class="form-group">-->
+<!--            <label th:for="columns">-->
+<!--                <th:block th:each="column : *{columns}">-->
+<!--                    <input type="radio" name="searchType" th:id="*{column.key}" th:value="*{column.key}" th:checked="*{column.key == 'all'}">-->
+<!--                    <label th:for="*{column.key}" th:text="*{column.value}"></label>-->
+<!--                </th:block>-->
+<!--            </label>-->
+<!--        </div>-->
+
+
+        <p>
+            <label th:for="searchValue">Keyword:</label>
+            <input type="text" name="searchValue" id="searchValue" />
+        </p>
+
+        <input type="submit" value="Search" />
+    </form>
+
+    <div class="table-striped">
+        <table class="table">
+            <tr th:each="job : ${jobs}">
+                <td>
+                    <p th:text="${'Job Title: ' + job.jobTitle}"></p>
+                    <p th:text="${'Employer: ' + job.company}"></p>
+                    <p th:text="${'Location: ' + job.location}"></p>
+                    <p th:text="${'Salary: ' + job.salary}"></p>
+                </td>
+                <td th:each="culture : ${job.cultures}">
+                    <p th:text="${'Cultural Touchstone: ' + culture.descriptor}"></p>
+                </td>
+                <td th:each="identity : ${job.identities}">
+                    <p th:text="${'Gender: ' + identity.gender}"></p>
+                    <p th:text="${'Transgender-Identity: ' + identity.transgender}"></p>
+                    <p th:text="${'Sexual Orientation: ' + identity.sexualOrientation}"></p>
+                    <p th:text="${'Age Range: ' + identity.ageRange}"></p>
+                    <p th:text="${'Ethnicity: ' + identity.ethnicity}"></p>
+                    <p th:text="${'Ability Status: : ' + identity.abilityStatus}"></p>
+                </td>
+        </table>
+    </div>
+
+    <hr />
+
+
+<!--    <table class="job-listing">-->
+<!--        <tr th:each="job : ${jobs}">-->
+<!--            <td>-->
+<!--                <p>-->
+<!--                    Job Id:-->
+<!--                    <a th:href="@{'/view/' + ${job.id}}" th:text="${job.id}"></a>-->
+<!--                </p>-->
+<!--                <p th:text="${'Name: ' + job.jobTitle}"></p>-->
+<!--                <p>-->
+<!--                    Company:-->
+<!--                    <a th:href="@{'/view/' + ${job.company.id}}" th:text="${job.company}"></a>-->
+<!--                </p>-->
+<!--                <p>-->
+<!--                    Culture:-->
+<!--                <ul th:each="culture : ${job.cultures}">-->
+<!--                    <li>-->
+<!--                        <a th:href="@{'/view/' + ${culture.id}}" th:text="${culture.descriptor}"></a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                </p>-->
+<!--                <p>-->
+<!--                    Identity:-->
+<!--                <ul th:each="identity : ${job.identities}">-->
+<!--                    <li>-->
+<!--                        <a th:href="@{'/view/ + ${identity.id}}" th:text="${identity.gender}"></a>-->
+<!--                    </li>-->
+<!--               </ul>-->
+<!--                </p>-->
+
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
 
     <a href="/view">
         <button class="btn btn-success">View All Jobs</button>
     </a>
-
 </body>
 </html>
