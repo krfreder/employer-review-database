@@ -64,4 +64,17 @@ public class Identity extends AbstractEntity {
     public List<Job> getJobs() { return jobs; }
 
     public void setJobs(List<Job> jobs) { this.jobs = jobs; }
+
+//    toString
+    @Override
+    public String toString() {
+        return "Identity{" +
+                "gender='" + gender + '\'' +
+                ", transgender='" + transgender + '\'' +
+                ", sexualOrientation='" + sexualOrientation + '\'' +
+                ", ageRange='" + ageRange + '\'' +
+                ", ethnicity='" + ethnicity + '\'' +
+                ", abilityStatus='" + abilityStatus + '\'' +
+                '}';
+    }
 }

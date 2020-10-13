@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org"/>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
-
-<!--    <div th:replace="fragments :: messages"></div>-->
 
     <form method="post" th:action="@{/register}" th:object="${userDTO}">
         <div class="form-group">

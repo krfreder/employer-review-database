@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org"/>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
 <!--todo replace myjobs.html with view.html-->
     <header th:replace="fragments :: header"></header>
 
-    <h1>You have submitted:</h1>
-
+    <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]] has submitted:</h1>
 </body>
 </html>

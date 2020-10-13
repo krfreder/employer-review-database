@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org"/>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
@@ -81,6 +81,3 @@
     </form>
 </body>
 </html>
-
-<!--Company objects are being calling incorrectly but Job objects are being called properly. Information from job objects not being submitted to database b/c "Company ID" is not present - has this been set up to process Company before Job?-->
-<!--Collapse the Company and Job models into one (Job). Then, the JobController will serve to handle that data-->
