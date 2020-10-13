@@ -9,22 +9,46 @@
     <form th:action="@{/search/result}" method="post">
         <h2>Search by:</h2>
 
-        <div class="form-group">
-            <label th:for="columns">
-                <th:block th:each="column : *{columns}">
-                    <input type="radio" name="searchType" th:id="*{column.key}" th:value="*{column.key}" th:checked="*{column.key == 'all'}">
-                    <label th:for="*{column.key}" th:text="*{column.value}"></label>
-                </th:block>
-            </label>
-        </div>
+<!--        <div class="form-group">-->
+<!--            <label th:for="columns">-->
+<!--                <th:block th:each="column : *{columns}">-->
+<!--                    <input type="radio" name="searchType" th:id="*{column.key}" th:value="*{column.key}" th:checked="*{column.key == 'all'}">-->
+<!--                    <label th:for="*{column.key}" th:text="*{column.value}"></label>-->
+<!--                </th:block>-->
+<!--            </label>-->
+<!--        </div>-->
+
 
         <p>
-            <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
+            <label th:for="searchValue">Keyword:</label>
+            <input type="text" name="searchValue" id="searchValue" />
         </p>
 
         <input type="submit" value="Search" />
     </form>
+
+    <div class="table-striped">
+        <table class="table">
+            <tr th:each="job : ${jobs}">
+                <td>
+                    <p th:text="${'Job Title: ' + job.jobTitle}"></p>
+                    <p th:text="${'Employer: ' + job.company}"></p>
+                    <p th:text="${'Location: ' + job.location}"></p>
+                    <p th:text="${'Salary: ' + job.salary}"></p>
+                </td>
+                <td th:each="culture : ${job.cultures}">
+                    <p th:text="${'Cultural Touchstone: ' + culture.descriptor}"></p>
+                </td>
+                <td th:each="identity : ${job.identities}">
+                    <p th:text="${'Gender: ' + identity.gender}"></p>
+                    <p th:text="${'Transgender-Identity: ' + identity.transgender}"></p>
+                    <p th:text="${'Sexual Orientation: ' + identity.sexualOrientation}"></p>
+                    <p th:text="${'Age Range: ' + identity.ageRange}"></p>
+                    <p th:text="${'Ethnicity: ' + identity.ethnicity}"></p>
+                    <p th:text="${'Ability Status: : ' + identity.abilityStatus}"></p>
+                </td>
+        </table>
+    </div>
 
     <hr />
 
