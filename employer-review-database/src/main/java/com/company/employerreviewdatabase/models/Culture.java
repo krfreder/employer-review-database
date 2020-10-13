@@ -32,10 +32,10 @@ public class Culture extends AbstractEntity{
     public void setJobs(List<Job> jobs) { this.jobs = jobs; }
 
 //    toString
-    @Override
-    public String toString() {
-        return "Culture{" +
-                "descriptor='" + descriptor + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Culture{" +
+//                "descriptor='" + descriptor + '\'' +
+//                '}';
+//    }
 }

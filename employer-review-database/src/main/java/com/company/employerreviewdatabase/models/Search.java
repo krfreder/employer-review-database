@@ -11,23 +11,21 @@ public class Search {
         ArrayList<Job> results = new ArrayList<>();
 
         for (Job job : allJobs) {
-            if(job.toString().toLowerCase().contains(lowerSearchVal)) {
-                results.add(job);
-            }
+
 
 //            for(int i = 0; i < job.size; i++ )
 
-//            if (job.getJobTitle().toLowerCase().contains(lowerSearchVal)) {
-//                results.add(job);
-//            } else if (job.getCompany().toLowerCase().contains(lowerSearchVal)) {
-//                results.add(job);
-//            } else if (job.getCultures().toString().toLowerCase().contains(lowerSearchVal)) {
-//                results.add(job);
-//            } else if (job.getIdentities().toString().toLowerCase().contains(lowerSearchVal)) {
-//                results.add(job);
-//            } else if (job.toString().toLowerCase().contains(lowerSearchVal)) {
-//                results.add(job);
-//            }
+            if (job.getJobTitle().toLowerCase().contains(lowerSearchVal)) {
+                results.add(job);
+            } else if (job.getCompany().toLowerCase().contains(lowerSearchVal)) {
+                results.add(job);
+            } else if (job.getCultures().toString().toLowerCase().contains(lowerSearchVal)) {
+                results.add(job);
+            } else if (job.getIdentities().toString().toLowerCase().contains(lowerSearchVal)) {
+                results.add(job);
+            } else if (job.toString().toLowerCase().contains(lowerSearchVal)) {
+                results.add(job);
+            }
 
         }
 
