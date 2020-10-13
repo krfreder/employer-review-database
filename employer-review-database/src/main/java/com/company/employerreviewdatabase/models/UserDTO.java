@@ -4,6 +4,7 @@ import javax.validation.constraints.NotBlank;
 
 public class UserDTO {
 // variable declarations
+
     @NotBlank(message = "Please enter a username")
     private String username;
 
