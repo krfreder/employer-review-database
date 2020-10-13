@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class JobController extends AbstractBaseController{
@@ -39,16 +40,16 @@ public class JobController extends AbstractBaseController{
     }
 
     @PostMapping("add")
-    public String processAddForm(@ModelAttribute @Valid Job newJob, Errors errors, @RequestParam List<Integer> cultures, @RequestParam List<Integer> identities) {
+    public String processAddForm(@ModelAttribute @Valid Job newJob, Errors errors, @RequestParam Set<Integer> cultures, @RequestParam Set<Integer> identities) {
 
         if(errors.hasErrors()) {
             return "add";
         }
 
-        List<Culture> cultureObjs = (List<Culture>) cultureRepository.findAllById(cultures);
+        Set<Culture> cultureObjs = (Set<Culture>) cultureRepository.findAllById(cultures);
         newJob.setCultures(cultureObjs);
 
-        List<Identity> identityObjs = (List<Identity>) identityRepository.findAllById(identities);
+        Set<Identity> identityObjs = (Set<Identity>) identityRepository.findAllById(identities);
         newJob.setIdentities(identityObjs);
 
         jobRepository.save(newJob);

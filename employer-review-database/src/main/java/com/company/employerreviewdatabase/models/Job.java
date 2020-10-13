@@ -1,12 +1,16 @@
 package com.company.employerreviewdatabase.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Job extends AbstractEntity {
@@ -25,14 +29,20 @@ public class Job extends AbstractEntity {
     private int salary;
 
     @ManyToMany
-    private List<Culture> cultures = new ArrayList<>();
+    @JoinTable(name = "culture",
+            joinColumns = {@JoinColumn(name = "jobs_id")},
+            inverseJoinColumns = {@JoinColumn(name = "cultures_id")})
+    private Set<Culture> cultures = new HashSet<Culture>();
 
     @ManyToMany
-    private List<Identity> identities = new ArrayList<>();
+    @JoinTable(name = "identity",
+            joinColumns = {@JoinColumn(name = "jobs_id")},
+            inverseJoinColumns = {@JoinColumn(name = "identities_id")})
+    private Set<Identity> identities = new HashSet<Identity>();
 
     public Job() { }
 
-    public Job(String jobTitle, String company, String location, int salary, List<Culture> cultures, List<Identity> identities) {
+    public Job(String jobTitle, String company, String location, int salary, Set<Culture> cultures, Set<Identity> identities) {
         this.jobTitle = jobTitle;
         this.company = company;
         this.location = location;
@@ -59,15 +69,15 @@ public class Job extends AbstractEntity {
 
     public void setSalary(int salary) { this.salary = salary; }
 
-    public List<Culture> getCultures() { return cultures; }
+    public Set<Culture> getCultures() { return cultures; }
 
-    public void setCultures(List<Culture> cultures) { this.cultures = cultures; }
+    public void setCultures(Set<Culture> cultures) { this.cultures = cultures; }
 // this might not be necessary?
     public void addCultures(Culture cultures) { this.cultures.add(cultures); }
 
-    public List<Identity> getIdentities() { return identities; }
+    public Set<Identity> getIdentities() { return identities; }
 
-    public void setIdentities(List<Identity> identities) { this.identities = identities; }
+    public void setIdentities(Set<Identity> identities) { this.identities = identities; }
 //    this might not be necessary?
     public void addIdentities(Identity identities) { this.identities.add(identities); }
 
